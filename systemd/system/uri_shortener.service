@@ -1,0 +1,17 @@
+[Unit]
+Description=URI Shortener
+After=syslog.target
+After=network.target
+
+[Service]
+RestartSec=2s
+Type=notify
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/uri_shortener
+ExecStart=/var/www/uri_shortener/uri_shortener
+Restart=always
+WatchdogSec=30s
+
+[Install]
+WantedBy=multi-user.target
